@@ -18,6 +18,10 @@ You specify a source CSV file with a set of rules and the utility should produce
     - Ignore columns?
     - Create new columns with computed value
 
+- Filtering
+    - Exclude rows with some values
+    - Exclude rows with values outside of a range 
+
 - Formatting
     - Should the column data be reformatted?
     - Is data correctly formatted?
