@@ -29,14 +29,14 @@ def clean_date(date_str, format = "%d-%m-%Y"):
 def clean_sodexo_payment_partner(description):
     if type(description) is str:
         transaction_ref_idx = description.find("(Transaction")
-        return description[:transaction_ref_idx].replace("Dépense", "").strip()
+        return description[:transaction_ref_idx].replace("Dépense", "").strip().title()
     else:
         raise TypeError("invalid description type.")
 
 def clean_sodexo_deposit_partner(partner):
     if type(partner) is str:
         result = parse("{} eLunch Pass d'une valeur de {} de {}", partner)
-        return result[2]
+        return result[2].title()
     else:
         raise TypeError("Invalid description type.")
 
