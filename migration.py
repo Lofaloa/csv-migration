@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+from bank import write_bank_transactions
 import csv
 from sodexo import make_sodexo_transaction
 from argparse import ArgumentParser
@@ -26,6 +27,8 @@ def main():
     if args.type[0] == "sodexo":
         write_transaction(args.file[0], args.destination[0])
         print(f"Sodexo file at {args.file[0]} migrated and written to {args.destination[0]}")
+    elif args.type[0] == "bank":
+        write_bank_transactions(args.file[0], args.destination[0])
     else:
         print("Unsupported file type.")
 

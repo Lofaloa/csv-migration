@@ -1,4 +1,5 @@
 import datetime as d
+from util import parse_amount, clean_date
 from parse import parse
 
 def make_sodexo_transaction(row, label = "Sodexo eLunch wallet", category = "Food"):
@@ -19,13 +20,6 @@ def parse_sodexo_row(row, ncolumns = 3):
     else:
         raise ValueError("Invalid Sodexo transaction: " + str(row))
 
-# Raises a ValueError when the date string and the format don't match
-def clean_date(date_str, format = "%d-%m-%Y"):
-    if type(date_str) is str:
-        return d.datetime.strptime(date_str, format).date().isoformat()
-    else:
-        raise TypeError("Invalid date type.")
-
 def clean_sodexo_payment_partner(description):
     if type(description) is str:
         transaction_ref_idx = description.find("(Transaction")
@@ -39,14 +33,6 @@ def clean_sodexo_deposit_partner(partner):
         return result[2].title()
     else:
         raise TypeError("Invalid description type.")
-
-def parse_amount(amount_str, deletechars = " €+"):
-    if type(amount_str) is str:
-        for char in deletechars:
-            amount_str = amount_str.replace(char, "")
-        return float(amount_str)
-    else:
-        raise TypeError("Invalid amount type.")
 
 def clean_sodexo_deposit(deposit, destination = "", category = ""):
     return {
