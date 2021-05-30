@@ -1,0 +1,11 @@
+{
+    "source": {
+        "path": "",
+        "header": true,
+        "columns": [ "Date", "Affilié", "Amount" ],
+        "delimiter": ";"
+    },
+    "target": {
+        "path": ""
+    }
+}
