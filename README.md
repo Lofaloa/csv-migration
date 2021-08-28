@@ -7,6 +7,22 @@ This tool first objective is to help me clean data that was extracted from the d
 ## Features
 You specify a source CSV file with a set of rules and the utility should produce the expected target CSV file.
 
+## Prerequisites
+```bash
+> sudo apt update
+> sudo apt install python3-pip
+> pip install parse
+```
+
+## Usage
+
+Export the history of the transactions from the Bank platform. In the downloaded CSV file, remove the first lines of metadata (keep the header line).
+ Feet it to the script.
+
+```bash
+> ./migration.py -f <input file location> -d <output file location> -t <bank | sodexo>
+```
+
 ## Stuff I should pay attention to
 - Input file validation 🛡
     - Schema validation. Has the file the expected columns? Do we want the input file to strictly contain the expected columns? What if a column does not exist? 
